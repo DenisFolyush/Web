@@ -1,0 +1,42 @@
+.how_to {
+    padding-top: 5rem;
+    width: 1285px;
+    margin: 0 auto;
+}
+
+.how_to_inner {
+    display: flex;
+    align-items: center;
+}
+
+.paragraph__instruction {
+    color: var(--text, #402B2B);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 40px;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    width: 470px;
+    height: 156px;
+    float: right;
+}
+
+.title__instruction {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 40px;
+    letter-spacing: 2.4px;
+    color: #EE4D47;
+    float: left;
+
+}
+
+.girl__ilustration {
+    width: 90%;
+    float: left;
+}
+
+.instruction__text {
+    width: 50%;
+    padding-left: 20px;
+}

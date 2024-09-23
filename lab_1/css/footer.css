@@ -1,0 +1,49 @@
+.footer {
+    width: 100%;
+    background: #F16353;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.footer__container {
+    width: 100%;
+    max-width: 1250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.footer__left {
+    color: var(--Gray2, #F8F9FA);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.footer__center {
+    font-family: "DM Serif Display";
+    font-size: 32px;
+    font-weight: 400;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+}
+
+.footer__logo {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.footer__right {
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    width: 170px;
+    height: 36px;
+    margin-left: 15px;
+}
+
