@@ -1,0 +1,192 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.header__title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-family: "DM Serif Display";
+    font-size: 32px;
+    font-weight: 400;
+    color: white;
+}
+
+.logo__icon {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.header__nav {
+    padding-left: 250px;
+}
+
+.header__nav ul {
+    display: flex;
+}
+
+.header__nav-link {
+    letter-spacing: 0.8px;
+    font-weight: 700;
+    margin-right: 95px;
+    font-size: 16px;
+}
+
+.header__contact-us {
+    cursor: pointer;
+    letter-spacing: 0.8px;
+    border-radius: 5px;
+    background: #EE4D47;
+    width: 160px;
+    height: 60px;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 21px;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-weight: 700;
+    transition: background 0.3s linear;
+}
+
+.header__contact-us:hover {
+    background: #cb2a25;
+}
+
+.header__menu {
+    width: 30px;
+    height: 30px;
+    background: url('menu_icon.svg') no-repeat center;
+    background-size: contain;
+    transition: background 0.3s ease-in-out;
+    cursor: pointer;
+    display: none;
+
+}
+
+.header__menu img {
+    width: 100%;
+    height: auto;
+    
+}
+
+.strilka__icon {
+    display: none;
+}   
+.cross {
+    display: none;
+    position: absolute;
+    bottom: 24px;
+    left: 22px;
+
+}
+
+.header__menu-icon.cross {
+    background: url('cross.svg') no-repeat center; 
+    background-size: contain;
+}
+
+.header__nav .header__nav-item {
+    margin-right: 0;
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 1285px) {
+    .header {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: linear-gradient(90deg, #FFC1A1, #FF7E53);
+        z-index: 1;
+        width: 100vw;
+        box-sizing: border-box;
+    }
+
+    
+    .header__nav ul {
+        flex-direction: column;
+        align-items: left;
+    }
+
+
+    .header__menu {
+        display: block;
+    }
+
+    .button__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .header__nav {
+        background: #EE4D47;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 5px 0;
+        display: none;
+        height: 0;
+        transition: height 0.5s ease-in-out;
+        width: 100vw;
+        border-radius: 0 0% 5% 0%;
+    }
+    .header__nav.open {
+        display: block;
+        height: auto;
+        margin-top: 8px;
+        width: 16rem;
+    }
+
+    .header__nav-link {
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .strilka__icon {
+        display: inline-block;
+        font-size: 10px;
+        margin-right: 10px;
+        margin-bottom: -6px;
+    }
+
+    .header__contact-us {
+        letter-spacing: 0.8px;
+        border-radius: 5px;
+        background: #EE4D47;
+        width: 106px;
+        height: 40px;
+        color: white;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        padding-left: 16px;
+        padding-right: 16px;
+        font-weight: 700;
+        transition: background 0.3s linear;
+        font-size: 10px;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    .header__title {
+        font-family: "DM Serif Display";
+        font-size: 20px;
+        font-weight: 300;
+        color: white;
+
+    }
+}
+@media screen and (max-width: 390px) {
+    .header__title {
+        display: none;
+    }
+}

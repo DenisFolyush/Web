@@ -1,0 +1,161 @@
+.ending {
+    max-width: 1600px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-us {
+    color: #EE4D47;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2.4px;
+    margin-bottom: 20px;
+
+}
+
+.clients {
+    font-family: "DM Serif Display";
+    color: #402B2B;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    height: 360px;
+    padding: 20px;
+    margin: 0 auto;
+    padding-bottom: 150px;
+
+}
+
+.client-box {
+    position: relative;
+    flex: 1;
+    margin: 0 10px;
+    border-radius: 10px;
+    padding: 2.125rem;
+    background: #FFF;
+    box-shadow: 0px 20px 40px 0px rgba(238, 77, 71, 0.10);
+    color: var(--text, #402B2B);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+
+}
+.client-box:hover{
+    transform: translateY(-30px);
+    
+}
+
+
+.client-box p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.client__name {
+    position: absolute;
+    bottom: 20px;
+    left: 2.125rem;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.client__icon {
+    margin-right: 10px;
+    vertical-align: middle;
+    position: relative;
+    top: -3px;
+}
+
+@media screen and (max-width: 1285px) {
+    .box-container {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30vh;
+    }
+
+    .client-box {
+        width: 60%;
+        margin-bottom: 20px;
+        height: auto;
+        padding: 1.5rem;
+    }
+
+    .client__name {
+        display: block;
+        position: static;
+        margin-top: 10px;
+        bottom: 20px;
+        left: 2.125rem;
+        font-weight: bold;
+        font-size: 16px;
+        margin-left: 100px;
+        margin-bottom: 1px;
+    }
+
+    .client__icon {
+        display: block;
+        margin: 0 auto 10px;
+        margin-left: -72px;
+        margin-bottom: -46px;
+        top: -3px;
+    }
+
+    .clients {
+        font-size: 32px;
+    }
+
+    .about-us {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 650PX) {
+
+    .client-box p {
+        font-size: 12px;
+    }
+
+}
+@media screen and (max-width: 500PX) {
+    .box-container {
+        flex-direction: column;
+        margin-bottom: 45vh;
+    }
+    .client__icon {
+        width: 50px;
+        height: 50px; 
+    }
+
+    .client__name {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 350PX) {
+    .box-container {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 85vh;
+    }
+
+.client__icon {
+    font-size: 10px;
+
+
+    }
+    .client__name {
+        font-size: 11px;
+    }
+
+}
