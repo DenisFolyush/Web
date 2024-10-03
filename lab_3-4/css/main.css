@@ -1,0 +1,134 @@
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    margin: 0;
+    color: #ff6666;
+}
+
+.header-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-link {
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 12px 14px;
+    border-radius: 4px;
+    background-color: #ffb3b3;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #ff8080;
+}
+
+.create-link {
+    background-color: #ff6666;
+}
+
+.create-link:hover {
+    background-color: #ff4d4d;
+}
+
+.header-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    width: 250px;
+    padding: 8px;
+    border: 1px solid #ff9999;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-button,
+.cancel-search-button {
+    background-color: #ffb3b3;
+    color: white;
+    border: none;
+    padding: 12px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover,
+.cancel-search-button:hover {
+    background-color: #ff8080;
+}
+
+.total-cats {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.total-cats strong {
+    font-weight: bold;
+    color: #ff6666;
+}
+
+.item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fce4ec;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.item-container__content {
+    flex-grow: 1;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.cat-icon-container i {
+    font-size: 24px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.button-container button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #ff6666;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+    background-color: #ff4d4d;
+}
