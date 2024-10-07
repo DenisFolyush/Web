@@ -14,9 +14,16 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      const catData = { name, age, color };
-
       let cats = JSON.parse(localStorage.getItem('catCards')) || [];
+
+      // Check for duplicate names
+      const duplicateCat = cats.find(cat => cat.name.toLowerCase() === name.toLowerCase());
+      if (duplicateCat) {
+        alert('A cat with this name already exists.');
+        return;
+      }
+
+      const catData = { name, age, color };
 
       cats.push(catData);
 
