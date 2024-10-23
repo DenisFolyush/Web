@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Cards</title>
+  <link rel="stylesheet" href="css/imports.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body class="page-background">
+  <div class="main-container">
+    <div class="header">
+      <h1 class="header-title">Cats</h1>
+      <div class="header-navigation">
+        <a href="lab5.html" class="nav-link">My Cats</a>
+        <a href="create_cat.html" class="nav-link create-link">Add Cat</a>
+        <div class="header-search">
+          <input id="find_input" type="text" class="search-input" placeholder="Search for a cat...">
+          <button id="find_button" type="button" class="search-button">Search</button>
+          <button id="cancel_find_button" type="button" class="cancel-search-button">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="form-section">
+        <div class="sorting-section">
+          <label for="sorting_switch">Enable Sorting by Age</label>
+          <label class="switch">
+            <input type="checkbox" id="sorting_switch">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <button id="count_cats_button" type="button" class="count-button">Count Total Cats</button>
+        <p class="total-cats">Total Cats: <strong id="total_cats">0</strong></p>
+      </div>
+      
+      <ul id="items_container" class="cards-list"></ul>
+      <ul id="cats_list"></ul>
+    </div>
+
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
