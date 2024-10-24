@@ -1,26 +1,40 @@
-
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3000; 
+const port = 3000;
 
 app.use(express.json());
-app.use(cors()); 
+app.use(cors());
 
-// База котів 
 let cats = [
   { id: 1, name: 'Whiskers', age: 3, color: 'brown' },
   { id: 2, name: 'Fluffy', age: 5, color: 'white' }
 ];
 
-// генерація  ID
 const generateId = () => {
   return cats.length > 0 ? Math.max(...cats.map(cat => cat.id)) + 1 : 1;
 };
 
-// **GET**: Отримати всіх котів
+// **GET**: Отримати всіх котів з пошуком і сортуванням
 app.get('/cats', (req, res) => {
-  res.json(cats);
+  let filteredCats = [...cats];
+
+  const { search, sortByAge } = req.query;
+
+  if (search) {
+    filteredCats = filteredCats.filter(cat => cat.name.toLowerCase().includes(search.toLowerCase()));
+  }
+
+  if (sortByAge === 'true') {
+    filteredCats.sort((a, b) => b.age - a.age);
+  }
+
+  res.json(filteredCats);
+});
+
+// **GET**: Підрахунок котів
+app.get('/cats/count', (req, res) => {
+  res.json({ total: cats.length });
 });
 
 // **GET**: Отримати кота за ID
@@ -39,7 +53,6 @@ app.post('/cats', (req, res) => {
     return res.status(400).json({ message: 'Please provide name, age, and color.' });
   }
 
-  // Перевірка на дублікатів
   const existingCat = cats.find(cat => cat.name.toLowerCase() === name.toLowerCase());
   if (existingCat) {
     return res.status(409).json({ message: 'A cat with this name already exists.' });
@@ -81,7 +94,6 @@ app.delete('/cats/:id', (req, res) => {
   res.json({ message: 'Cat deleted successfully' });
 });
 
-// пуск
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

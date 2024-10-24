@@ -1,6 +1,5 @@
 import { displayCats } from './display.js';
 
-// Видалення кота через DELETE-запит до бекенду
 async function deleteCat(catId) {
   try {
     const response = await fetch(`http://localhost:3000/cats/${catId}`, {
@@ -38,7 +37,7 @@ function createCatCard(catData) {
 
   card.querySelector('.delete-button').addEventListener('click', function () {
     if (confirm('Are you sure you want to delete this cat?')) {
-      deleteCat(catData.id);  
+      deleteCat(catData.id);
     }
   });
 
@@ -54,20 +53,17 @@ function countTotalCats(cats) {
   document.getElementById('total_cats').textContent = cats.length;
 }
 
-function handleSearch(cats) {
-  const searchText = document.getElementById('find_input').value.trim().toLowerCase();
-  return cats.filter(cat => cat.name.toLowerCase().includes(searchText));
-}
-
-function sortCatsByAge(catsArray) {
-  if (catsArray.length > 0) {
-    catsArray.sort((a, b) => b.age - a.age);
-  }
-}
-
-async function fetchCats() {
+async function fetchCats(searchText = '', sortByAge = false) {
   try {
-    const response = await fetch('http://localhost:3000/cats');
+    const url = new URL('http://localhost:3000/cats');
+    if (searchText) {
+      url.searchParams.append('search', searchText);
+    }
+    if (sortByAge) {
+      url.searchParams.append('sortByAge', 'true');
+    }
+
+    const response = await fetch(url);
     if (response.ok) {
       const cats = await response.json();
       return cats;
@@ -81,6 +77,4 @@ async function fetchCats() {
   }
 }
 
-
-
-export { countTotalCats, handleSearch, createCatCard, sortCatsByAge, fetchCats };
+export { countTotalCats, createCatCard, fetchCats };

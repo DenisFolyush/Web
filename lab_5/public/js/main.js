@@ -1,24 +1,6 @@
 import { displayCats } from './display.js';
-import { countTotalCats, handleSearch, sortCatsByAge } from './catManager.js';
+import { countTotalCats, fetchCats } from './catManager.js';
 
-// коти із сервера
-async function fetchCats() {
-  try {
-    const response = await fetch('http://localhost:3000/cats');
-    if (response.ok) {
-      const cats = await response.json();
-      return cats; 
-    } else {
-      console.error('Failed to fetch cats.');
-      return [];
-    }
-  } catch (error) {
-    console.error('Error fetching cats:', error);
-    return [];
-  }
-}
-
-//відображення котів 
 async function loadAndDisplayCats() {
   const cats = await fetchCats();
   displayCats(cats);
@@ -29,28 +11,31 @@ if (window.location.pathname.includes('lab5.html')) {
     loadAndDisplayCats();
 
     document.getElementById('find_button').addEventListener('click', async function () {
-      let cats = await fetchCats();  
-      let filteredCats = handleSearch(cats);  
+      const searchText = document.getElementById('find_input').value.trim().toLowerCase();
       const sortingEnabled = document.getElementById('sorting_switch').checked;
-
-      if (sortingEnabled) {
-        sortCatsByAge(filteredCats);  
-      }
-      displayCats(filteredCats); 
+      const cats = await fetchCats(searchText, sortingEnabled);
+      displayCats(cats);
     });
 
     document.getElementById('sorting_switch').addEventListener('change', async function () {
-      let cats = await fetchCats();
-      let filteredCats = handleSearch(cats); 
-      if (this.checked) {
-        sortCatsByAge(filteredCats); 
-      }
-      displayCats(filteredCats);  
+      const searchText = document.getElementById('find_input').value.trim().toLowerCase();
+      const sortingEnabled = this.checked;
+      const cats = await fetchCats(searchText, sortingEnabled);
+      displayCats(cats);
     });
 
     document.getElementById('count_cats_button').addEventListener('click', async function () {
-      let cats = await fetchCats();
-      countTotalCats(cats);
+      try {
+        const response = await fetch('http://localhost:3000/cats/count');
+        if (response.ok) {
+          const { total } = await response.json();
+          document.getElementById('total_cats').textContent = total;
+        } else {
+          console.error('Failed to count cats.');
+        }
+      } catch (error) {
+        console.error('Error counting cats:', error);
+      }
     });
   });
 }
